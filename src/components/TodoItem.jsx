@@ -14,13 +14,13 @@ const TodoItem = (props) => {
     }
 
     return (
-        <li className={props.check === true ? "list-group-item bg-success w-75 mx-auto" : "list-group-item w-75 mx-auto"} id={props.id} onDoubleClick={handleClick} >
-            <input type="checkbox" onClick={props.onCheck}  defaultChecked={props.check} />
-            {!input && props.text}
+        <li className={props.check === true ? "list-group-item bg-success w-75 mx-auto mx-auto d-flex justify-content-center align-items-center" : "list-group-item w-75 mx-auto d-flex justify-content-center align-items-center"} id={props.id} onDoubleClick={handleClick} >
+            <input type="checkbox" onClick={props.onCheck} className=""  defaultChecked={props.check} />
+            {!input && <p className="m-0 px-5 w-75">{props.text}</p>}
             {input && <input type="text" className="w-75" onChange={props.onUpdate} onKeyPress={conditonInput} />}
-            <button type="button" className="close" onClick={props.onDelete} data-dismiss="toast" >
-                <span>&times;</span>
-            </button>
+            <span>
+                <button type="button" className="btn-close d-block col-2" onClick={props.onDelete} data-dismiss="toast"></button>
+            </span>
         </li>
     )
 

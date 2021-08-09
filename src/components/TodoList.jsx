@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import TodoItem from './TodoItem';
 
 const TodoList = () => {
-    // Declatation d'un state avec un tableau vide ou on va stocker nos taches
+    // Declaration d'un state avec un tableau vide ou on va stocker nos taches
     const [todos,setTodos] = useState([]);
     // Declaration d'un state avec all pour faire de l'affichage conditionelle
     const [menu,setMenu] = useState("all");
@@ -72,16 +72,16 @@ const TodoList = () => {
             </div>
             <div className="d-flex justify-content-center">
                 <button className={menu === "all" ? "btn btn-primary active" : "btn btn-primary"} onClick={() => setMenu("all")}>Tous</button>
-                <button className={menu === "todo" ? "btn btn-primary active mx-2" : "btn btn-primary mx-2"} onClick={() => setMenu("todo")}>à faire</button>
-                <button className={menu === "done" ? "btn btn-primary active" : "btn btn-primary"} onClick={() => setMenu("done")}>Fait</button>
+                <button className={menu === "todo" ? "btn btn-warning active mx-2" : "btn btn-warning mx-2"} onClick={() => setMenu("todo")}>à faire</button>
+                <button className={menu === "done" ? "btn btn-success active" : "btn btn-success"} onClick={() => setMenu("done")}>Fait</button>
             </div>
             <div className="mt-5">
                 <ul className="list-group py-2">
                     {/* Conditon de rendu pour afficher toutes les taches, les taches fait et les taches non fait
                     Le filter me permet de filtrer mon tableau */}
                     {menu === "all" && rendu}
-                    {menu === "todo" && rendu.filter(el => el.props.check === true)}
-                    {menu === "done" && rendu.filter(el => el.props.check === false)}
+                    {menu === "todo" && rendu.filter(el => el.props.check === false)}
+                    {menu === "done" && rendu.filter(el => el.props.check === true)}
                 </ul>
             </div>
         </div>
